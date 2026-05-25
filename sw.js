@@ -1,4 +1,4 @@
-const CACHE_NAME = 'otetsudai-v3';
+const CACHE_NAME = 'otetsudai-v3b';
 const ASSETS = ['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install', event => {

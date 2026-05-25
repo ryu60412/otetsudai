@@ -67,7 +67,7 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
 .cell.future{background:#FAFAFA;color:#BDBDBD;border-color:#E0E0E0;}
 .cell .num{position:absolute;top:2px;left:5px;font-size:.4em;opacity:.6;}
 @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
-@keyframes sparkle{0%,100%{box-shadow:0 0 5px rgba(255,143,0,.3);}50%{box-shadow:0 0 15px rgba(255,143,0,.6);}
+@keyframes sparkle{0%,100%{box-shadow:0 0 5px rgba(255,143,0,.3);}50%{box-shadow:0 0 15px rgba(255,143,0,.6);}}
 
 /* ===== Progress Bar ===== */
 .progress-wrap{margin:12px 0;background:#fff;border-radius:18px;height:28px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(0,0,0,.1);}
@@ -157,16 +157,16 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
 
 <!-- ===== Setup Screen ===== -->
 <div id="setupScreen">
-  <h1>🌟 おてつだいポイント 🌟</h1>
+  <h1>&#x1F31F; おてつだいポイント &#x1F31F;</h1>
   <p>なまえと キャラクターを えらんでね！</p>
   <input type="text" class="name-input" id="setupName" placeholder="なまえを いれてね" maxlength="10">
   <div class="char-grid" id="setupChars">
-    <button class="char-btn" onclick="pickSetupChar(this,'🚗')">🚗<span>くるま</span></button>
-    <button class="char-btn" onclick="pickSetupChar(this,'🚒')">🚒<span>しょうぼうしゃ</span></button>
-    <button class="char-btn" onclick="pickSetupChar(this,'🚓')">🚓<span>パトカー</span></button>
-    <button class="char-btn" onclick="pickSetupChar(this,'🐰')">🐰<span>うさぎ</span></button>
-    <button class="char-btn" onclick="pickSetupChar(this,'🐱')">🐱<span>ねこ</span></button>
-    <button class="char-btn" onclick="pickSetupChar(this,'🐼')">🐼<span>パンダ</span></button>
+    <button class="char-btn" onclick="pickSetupChar(this,'&#x1F697;')">&#x1F697;<span>くるま</span></button>
+    <button class="char-btn" onclick="pickSetupChar(this,'&#x1F692;')">&#x1F692;<span>しょうぼうしゃ</span></button>
+    <button class="char-btn" onclick="pickSetupChar(this,'&#x1F693;')">&#x1F693;<span>パトカー</span></button>
+    <button class="char-btn" onclick="pickSetupChar(this,'&#x1F430;')">&#x1F430;<span>うさぎ</span></button>
+    <button class="char-btn" onclick="pickSetupChar(this,'&#x1F431;')">&#x1F431;<span>ねこ</span></button>
+    <button class="char-btn" onclick="pickSetupChar(this,'&#x1F43C;')">&#x1F43C;<span>パンダ</span></button>
   </div>
   <button class="setup-go" id="setupGo" onclick="finishSetup()" disabled>はじめる！</button>
 </div>
@@ -174,17 +174,17 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
 <!-- ===== Main App ===== -->
 <div id="app">
   <div class="topbar">
-    <span class="char" id="topChar">🐰</span>
+    <span class="char" id="topChar">&#x1F430;</span>
     <span class="name" id="topName">なまえ</span>
     <span class="pts-label">ポイント</span>
     <span class="pts" id="topPts">0</span>
-    <button class="switch-btn" onclick="showPlayerSwitcher()">👥きりかえ</button>
+    <button class="switch-btn" onclick="showPlayerSwitcher()">&#x1F465;きりかえ</button>
   </div>
   <div class="tab-content">
     <div class="tab-page active" id="pageHome">
       <div class="progress-wrap"><div class="progress-bar" id="progBar" style="width:0%">0%</div></div>
       <div class="board-section">
-        <h2>🗺️ ぼうけんマップ</h2>
+        <h2>&#x1F5FA;&#xFE0F; ぼうけんマップ</h2>
         <div class="board" id="board"></div>
       </div>
       <div class="btn-area">
@@ -196,7 +196,7 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
     <div class="tab-page" id="pageMorning">
       <div class="morning-card">
         <h2>☀️ あさチャレンジ</h2>
-        <div class="emoji">🌅</div>
+        <div class="emoji">&#x1F305;</div>
         <p>きめた じかんに おきたら<br>ボーナス <b>+2ポイント！</b></p>
         <div class="time-display" id="morningTimeDisplay">6:00〜7:30</div>
         <p>はやおきは いいことだね！</p>
@@ -206,12 +206,12 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
     </div>
     <div class="tab-page" id="pageSettings">
       <div class="settings-card">
-        <h3>👥 さんかしゃ</h3>
+        <h3>&#x1F465; さんかしゃ</h3>
         <div id="settingsPlayerList"></div>
         <button class="add-player-btn" onclick="showAddPlayer()">＋ さんかしゃを ついか</button>
       </div>
       <div class="settings-card">
-        <h3>🎯 もくひょうポイント</h3>
+        <h3>&#x1F3AF; もくひょうポイント</h3>
         <label>ゴールまでの ポイントすう</label>
         <div class="slider-wrap">
           <input type="range" id="targetSlider" min="10" max="100" step="5" value="30" oninput="updateTarget(this.value)">
@@ -232,24 +232,24 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
         </div>
       </div>
       <div class="settings-card">
-        <h3>🎭 キャラクター へんこう</h3>
+        <h3>&#x1F3AD; キャラクター へんこう</h3>
         <div class="char-grid" style="justify-items:center;">
-          <button class="char-btn" onclick="changeChar('🚗')">🚗<span>くるま</span></button>
-          <button class="char-btn" onclick="changeChar('🚒')">🚒<span>しょうぼうしゃ</span></button>
-          <button class="char-btn" onclick="changeChar('🚓')">🚓<span>パトカー</span></button>
-          <button class="char-btn" onclick="changeChar('🐰')">🐰<span>うさぎ</span></button>
-          <button class="char-btn" onclick="changeChar('🐱')">🐱<span>ねこ</span></button>
-          <button class="char-btn" onclick="changeChar('🐼')">🐼<span>パンダ</span></button>
+          <button class="char-btn" onclick="changeChar('&#x1F697;')">&#x1F697;<span>くるま</span></button>
+          <button class="char-btn" onclick="changeChar('&#x1F692;')">&#x1F692;<span>しょうぼうしゃ</span></button>
+          <button class="char-btn" onclick="changeChar('&#x1F693;')">&#x1F693;<span>パトカー</span></button>
+          <button class="char-btn" onclick="changeChar('&#x1F430;')">&#x1F430;<span>うさぎ</span></button>
+          <button class="char-btn" onclick="changeChar('&#x1F431;')">&#x1F431;<span>ねこ</span></button>
+          <button class="char-btn" onclick="changeChar('&#x1F43C;')">&#x1F43C;<span>パンダ</span></button>
         </div>
       </div>
       <div class="settings-card">
-        <h3>🔄 リセット</h3>
+        <h3>&#x1F504; リセット</h3>
         <button class="reset-btn" onclick="confirmReset()">ポイントを リセットする</button>
       </div>
     </div>
   </div>
   <div class="tab-nav">
-    <button class="active" onclick="switchTab('pageHome',this)"><span class="icon">🏠</span>ホーム</button>
+    <button class="active" onclick="switchTab('pageHome',this)"><span class="icon">&#x1F3E0;</span>ホーム</button>
     <button onclick="switchTab('pageMorning',this)"><span class="icon">☀️</span>あさチャレンジ</button>
     <button onclick="switchTab('pageSettings',this)"><span class="icon">⚙️</span>せってい</button>
   </div>
@@ -259,92 +259,100 @@ body{background:linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%);display:flex;fle
 
 <script>
 // ===== Data =====
-let data={players:[],currentId:null,target:30,morningStart:{h:6,m:0},morningEnd:{h:7,m:30}};
-let undoPending=false,undoTimer=null;
+var data={players:[],currentId:null,target:30,morningStart:{h:6,m:0},morningEnd:{h:7,m:30}};
+var undoPending=false,undoTimer=null;
 
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
-function cur(){return data.players.find(p=>p.id===data.currentId)||null;}
+function cur(){return data.players.find(function(p){return p.id===data.currentId;})||null;}
 function save(){localStorage.setItem('otetsudai3',JSON.stringify(data));}
-function load(){const s=localStorage.getItem('otetsudai3');if(s){try{data=JSON.parse(s);}catch(e){}}}
+function load(){var s=localStorage.getItem('otetsudai3');if(s){try{data=JSON.parse(s);}catch(e){}}}
 
 // ===== Milestone Messages =====
 function getMilestoneMsg(pts,target){
-  const remaining=target-pts;
-  // Context-aware: close to goal
-  if(remaining<=10 && remaining>0) return {msg:'あとちょっと！',emoji:'💨'};
-  if(remaining<=0) return null; // goal handled separately
-  // Fixed milestone messages
-  const msgs={
-    10:{msg:'いいかんじ！',emoji:'🌟'},
-    20:{msg:'がんばってるね！',emoji:'💪'},
+  var remaining=target-pts;
+  if(remaining<=10&&remaining>0) return {msg:'あとちょっと！',emoji:'\uD83D\uDCA8'};
+  if(remaining<=0) return null;
+  var msgs={
+    10:{msg:'いいかんじ！',emoji:'\uD83C\uDF1F'},
+    20:{msg:'がんばってるね！',emoji:'\uD83D\uDCAA'},
     30:{msg:'すごいぞ！',emoji:'⭐'},
-    40:{msg:'えらい！',emoji:'👏'},
-    50:{msg:'はんぶん すぎたよ！',emoji:'🎯'},
-    60:{msg:'もっと いけるよ！',emoji:'🔥'},
-    70:{msg:'あとちょっと！',emoji:'💨'},
-    80:{msg:'もうすぐ ゴール！',emoji:'🏁'},
-    90:{msg:'ラストスパート！',emoji:'🚀'}
+    40:{msg:'えらい！',emoji:'\uD83D\uDC4F'},
+    50:{msg:'はんぶん すぎたよ！',emoji:'\uD83C\uDFAF'},
+    60:{msg:'もっと いけるよ！',emoji:'\uD83D\uDD25'},
+    70:{msg:'あとちょっと！',emoji:'\uD83D\uDCA8'},
+    80:{msg:'もうすぐ ゴール！',emoji:'\uD83C\uDFC1'},
+    90:{msg:'ラストスパート！',emoji:'\uD83D\uDE80'}
   };
   if(msgs[pts]) return msgs[pts];
   return {msg:'その ちょうし！',emoji:'✨'};
 }
 
-// Short label for board cells
 function getMilestoneBoardLabel(cellNum,target){
-  const remaining=target-cellNum;
-  if(remaining<=10 && remaining>0) return 'あとちょっと';
-  const labels={10:'いいかんじ',20:'がんばれ',30:'すごい',40:'えらい',50:'はんぶん',60:'いけるよ',70:'あとすこし',80:'もうすぐ',90:'ラスト'};
+  var remaining=target-cellNum;
+  if(remaining<=10&&remaining>0) return 'あとちょっと';
+  var labels={10:'いいかんじ',20:'がんばれ',30:'すごい',40:'えらい',50:'はんぶん',60:'いけるよ',70:'あとすこし',80:'もうすぐ',90:'ラスト'};
   return labels[cellNum]||'ファイト';
 }
 
 function showMilestoneToast(pts,target){
-  const info=getMilestoneMsg(pts,target);
+  var info=getMilestoneMsg(pts,target);
   if(!info)return;
-  const p=cur();
-  const el=document.createElement('div');
+  var p=cur();
+  var el=document.createElement('div');
   el.className='milestone-toast';
   el.innerHTML='<div class="mt-char">'+(p?p.char:'⭐')+'</div>'
     +'<div class="mt-msg">'+info.emoji+' '+info.msg+' '+info.emoji+'</div>'
     +'<div class="mt-pts">'+pts+'ポイント たっせい！</div>';
   document.body.appendChild(el);
-  setTimeout(()=>{el.classList.add('out');},2000);
-  setTimeout(()=>{el.remove();},2500);
+  setTimeout(function(){el.classList.add('out');},2000);
+  setTimeout(function(){el.remove();},2500);
 }
 
 // ===== Init =====
 function init(){
   load();initTimeSelects();
   if(data.players.length>0&&data.currentId){
-    document.getElementById('setupScreen').classList.add('hidden');
+    document.getElementById('setupScreen').style.display='none';
     document.getElementById('app').style.display='flex';
     renderAll();
   }
 }
 
 // ===== Setup =====
-let setupChar='';
-function pickSetupChar(btn,c){setupChar=c;document.querySelectorAll('#setupChars .char-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');checkSetupReady();}
-function checkSetupReady(){document.getElementById('setupGo').disabled=!(document.getElementById('setupName').value.trim()&&setupChar);}
-document.addEventListener('DOMContentLoaded',()=>{document.getElementById('setupName').addEventListener('input',checkSetupReady);});
+var setupChar='';
+function pickSetupChar(btn,c){
+  setupChar=c;
+  var btns=document.querySelectorAll('#setupChars .char-btn');
+  for(var i=0;i<btns.length;i++) btns[i].classList.remove('selected');
+  btn.classList.add('selected');
+  checkSetupReady();
+}
+function checkSetupReady(){
+  document.getElementById('setupGo').disabled=!(document.getElementById('setupName').value.trim()&&setupChar);
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('setupName').addEventListener('input',checkSetupReady);
+});
 function finishSetup(){
-  const n=document.getElementById('setupName').value.trim();
+  var n=document.getElementById('setupName').value.trim();
   if(!n||!setupChar)return;
-  const p={id:uid(),name:n,char:setupChar,points:0,morningDone:''};
+  var p={id:uid(),name:n,char:setupChar,points:0,morningDone:''};
   data.players.push(p);data.currentId=p.id;save();
-  document.getElementById('setupScreen').classList.add('hidden');
-  document.getElementById('app').style.display='flex';renderAll();
+  document.getElementById('setupScreen').style.display='none';
+  document.getElementById('app').style.display='flex';
+  renderAll();
 }
 
 // ===== Render =====
 function renderAll(){
-  const p=cur();if(!p)return;
+  var p=cur();if(!p)return;
   document.getElementById('topChar').textContent=p.char;
   document.getElementById('topName').textContent=p.name;
   document.getElementById('topPts').textContent=p.points;
   document.getElementById('targetSlider').value=data.target;
   document.getElementById('targetVal').textContent=data.target;
-  const pct=Math.min(100,Math.round((p.points/data.target)*100));
-  const bar=document.getElementById('progBar');
+  var pct=Math.min(100,Math.round((p.points/data.target)*100));
+  var bar=document.getElementById('progBar');
   bar.style.width=pct+'%';bar.textContent=pct+'%';
   renderBoard();renderMorning();renderSettingsPlayers();loadMorningTimeUI();
   document.getElementById('helpBtn').disabled=p.points>=data.target;
@@ -353,159 +361,181 @@ function renderAll(){
 }
 
 function renderBoard(){
-  const p=cur();if(!p)return;
-  const board=document.getElementById('board');board.innerHTML='';
-  const total=data.target,cols=5,rows=Math.ceil(total/cols);
-  const cells=[];
-  for(let r=0;r<rows;r++){
-    const row=[];for(let c=0;c<cols;c++){const i=r*cols+c;row.push(i<total?i+1:null);}
-    if(r%2===1)row.reverse();cells.push(...row);
+  var p=cur();if(!p)return;
+  var board=document.getElementById('board');board.innerHTML='';
+  var total=data.target,cols=5,rows=Math.ceil(total/cols);
+  var cells=[];
+  for(var r=0;r<rows;r++){
+    var row=[];for(var c=0;c<cols;c++){var i=r*cols+c;row.push(i<total?i+1:null);}
+    if(r%2===1)row.reverse();
+    for(var j=0;j<row.length;j++) cells.push(row[j]);
   }
-  cells.forEach(num=>{
-    const el=document.createElement('div');el.className='cell';
+  for(var k=0;k<cells.length;k++){
+    var num=cells[k];
+    var el=document.createElement('div');el.className='cell';
     if(num===null){el.classList.add('future');el.innerHTML='';}
     else if(num===p.points+1&&p.points<total){el.classList.add('current');el.innerHTML=p.char;}
     else if(num===total){
       el.classList.add(p.points>=total?'done':'goal');
-      el.innerHTML='<span class="num">'+num+'</span>🏆';
+      el.innerHTML='<span class="num">'+num+'</span>\uD83C\uDFC6';
     }
     else if(num<=p.points){el.classList.add('done');el.innerHTML='<span class="num">'+num+'</span>✅';}
     else if(num%10===0&&num<total){
-      // Milestone cell: star + short label
       el.classList.add('milestone');
       el.innerHTML='<span class="num">'+num+'</span>⭐<span class="ms-label">'+getMilestoneBoardLabel(num,total)+'</span>';
     }
     else{el.classList.add('future');el.innerHTML='<span class="num">'+num+'</span>';}
     board.appendChild(el);
-  });
+  }
 }
 
 function renderMorning(){
-  const p=cur();if(!p)return;
-  const today=new Date().toISOString().slice(0,10);
-  const btn=document.getElementById('morningBtn');
-  const status=document.getElementById('morningStatus');
-  const now=new Date(),h=now.getHours(),m=now.getMinutes(),nowMin=h*60+m;
-  const startMin=data.morningStart.h*60+data.morningStart.m;
-  const endMin=data.morningEnd.h*60+data.morningEnd.m;
-  const timeOk=nowMin>=startMin&&nowMin<=endMin;
-  const sh=String(data.morningStart.h).padStart(2,'0'),sm=String(data.morningStart.m).padStart(2,'0');
-  const eh=String(data.morningEnd.h).padStart(2,'0'),em=String(data.morningEnd.m).padStart(2,'0');
-  document.getElementById('morningTimeDisplay').textContent=sh+':'+sm+'〜'+eh+':'+em;
+  var p=cur();if(!p)return;
+  var today=new Date().toISOString().slice(0,10);
+  var btn=document.getElementById('morningBtn');
+  var status=document.getElementById('morningStatus');
+  var now=new Date(),h=now.getHours(),m=now.getMinutes(),nowMin=h*60+m;
+  var startMin=data.morningStart.h*60+data.morningStart.m;
+  var endMin=data.morningEnd.h*60+data.morningEnd.m;
+  var timeOk=nowMin>=startMin&&nowMin<=endMin;
+  var sh=String(data.morningStart.h).padStart(2,'0'),sm=String(data.morningStart.m).padStart(2,'0');
+  var eh=String(data.morningEnd.h).padStart(2,'0'),em2=String(data.morningEnd.m).padStart(2,'0');
+  document.getElementById('morningTimeDisplay').textContent=sh+':'+sm+'\u301C'+eh+':'+em2;
   if(p.morningDone===today){btn.disabled=true;status.textContent='✅ きょうは もうクリアしたよ！すごい！';}
-  else if(!timeOk){btn.disabled=true;status.textContent='⏰ '+sh+':'+sm+'〜'+eh+':'+em+' に チャレンジしてね';}
-  else{btn.disabled=false;status.textContent='🌟 いまが チャンスだよ！';}
+  else if(!timeOk){btn.disabled=true;status.textContent='⏰ '+sh+':'+sm+'\u301C'+eh+':'+em2+' に チャレンジしてね';}
+  else{btn.disabled=false;status.textContent='\uD83C\uDF1F いまが チャンスだよ！';}
 }
 
 function renderSettingsPlayers(){
-  const wrap=document.getElementById('settingsPlayerList');wrap.innerHTML='';
-  data.players.forEach(p=>{
-    const div=document.createElement('div');
+  var wrap=document.getElementById('settingsPlayerList');wrap.innerHTML='';
+  for(var i=0;i<data.players.length;i++){
+    var p=data.players[i];
+    var div=document.createElement('div');
     div.style.cssText='display:flex;align-items:center;gap:10px;padding:10px 12px;margin:6px 0;background:'+(p.id===data.currentId?'#FFF3E0':'#FAFAFA')+';border-radius:12px;border:2px solid '+(p.id===data.currentId?'#FF9800':'transparent')+';';
     div.innerHTML='<span style="font-size:1.5em">'+p.char+'</span><span style="flex:1;font-weight:bold">'+p.name+'</span><span style="color:#E65100;font-weight:bold">'+p.points+'pt</span>'+(data.players.length>1?'<button class="del-btn" onclick="confirmDeletePlayer(\''+p.id+'\')">✕</button>':'');
     wrap.appendChild(div);
-  });
+  }
 }
 
 // ===== Actions =====
 function addPoint(){
-  const p=cur();if(!p||p.points>=data.target)return;
-  const oldPts=p.points;
+  var p=cur();if(!p||p.points>=data.target)return;
   p.points++;save();renderAll();showPtAnim('+1','plus');
-  // Check milestone (crossed a multiple of 10)
   if(p.points%10===0&&p.points<data.target){
-    setTimeout(()=>showMilestoneToast(p.points,data.target),500);
+    setTimeout(function(){showMilestoneToast(p.points,data.target);},500);
   }
-  if(p.points>=data.target)setTimeout(()=>showGoalModal(),600);
+  if(p.points>=data.target)setTimeout(function(){showGoalModal();},600);
 }
 
 function undoPoint(){
-  const p=cur();if(!p||p.points<=0)return;
-  if(!undoPending){undoPending=true;document.getElementById('undoMsg').classList.remove('hidden');clearTimeout(undoTimer);undoTimer=setTimeout(()=>{undoPending=false;document.getElementById('undoMsg').classList.add('hidden');},2500);return;}
+  var p=cur();if(!p||p.points<=0)return;
+  if(!undoPending){undoPending=true;document.getElementById('undoMsg').classList.remove('hidden');clearTimeout(undoTimer);undoTimer=setTimeout(function(){undoPending=false;document.getElementById('undoMsg').classList.add('hidden');},2500);return;}
   undoPending=false;document.getElementById('undoMsg').classList.add('hidden');
   p.points--;save();renderAll();showPtAnim('-1','minus');
 }
 
 function morningChallenge(){
-  const p=cur();if(!p)return;
-  const today=new Date().toISOString().slice(0,10);
+  var p=cur();if(!p)return;
+  var today=new Date().toISOString().slice(0,10);
   if(p.morningDone===today)return;
   p.morningDone=today;
-  const oldPts=p.points;
+  var oldPts=p.points;
   p.points=Math.min(data.target,p.points+2);
   save();renderAll();showPtAnim('+2','plus');
-  // Check if we crossed a 10-milestone
-  const newPts=p.points;
-  for(let m=Math.floor(oldPts/10)*10+10;m<=newPts&&m<data.target;m+=10){
-    setTimeout(((mm)=>()=>showMilestoneToast(mm,data.target))(m),500);
+  var newPts=p.points;
+  for(var ms=Math.floor(oldPts/10)*10+10;ms<=newPts&&ms<data.target;ms+=10){
+    (function(mm){setTimeout(function(){showMilestoneToast(mm,data.target);},500);})(ms);
   }
-  if(p.points>=data.target)setTimeout(()=>showGoalModal(),600);
+  if(p.points>=data.target)setTimeout(function(){showGoalModal();},600);
 }
 
 function showPtAnim(text,cls){
-  const el=document.createElement('div');el.className='pt-anim '+cls;el.textContent=text;
+  var el=document.createElement('div');el.className='pt-anim '+cls;el.textContent=text;
   el.style.left=(window.innerWidth/2-30)+'px';el.style.top=(window.innerHeight/2)+'px';
-  document.body.appendChild(el);setTimeout(()=>el.remove(),1200);
+  document.body.appendChild(el);setTimeout(function(){el.remove();},1200);
 }
 
 // ===== Goal =====
 function showGoalModal(){
-  showConfetti();const p=cur();
-  document.getElementById('modalWrap').innerHTML='<div class="modal-overlay" onclick="event.target===this&&closeModal()"><div class="modal"><h2>🎉 ゴール！！🎉</h2><div class="big-emoji">'+p.char+'</div><p><b>'+p.name+'</b> が <b>'+data.target+'ポイント</b> たっせい！</p><p>すごいね！よく がんばったね！</p><button onclick="closeModal()">やったー！</button></div></div>';
+  showConfetti();var p=cur();
+  document.getElementById('modalWrap').innerHTML='<div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><h2>\uD83C\uDF89 ゴール！！\uD83C\uDF89</h2><div class="big-emoji">'+p.char+'</div><p><b>'+p.name+'</b> が <b>'+data.target+'ポイント</b> たっせい！</p><p>すごいね！よく がんばったね！</p><button onclick="closeModal()">やったー！</button></div></div>';
 }
 function closeModal(){document.getElementById('modalWrap').innerHTML='';}
 function showConfetti(){
-  const w=document.createElement('div');w.className='confetti-wrap';
-  const colors=['#FF5722','#FF9800','#4CAF50','#2196F3','#9C27B0','#FFC107','#E91E63'];
-  for(let i=0;i<80;i++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDelay=(Math.random()*2)+'s';c.style.animationDuration=(2+Math.random()*2)+'s';c.style.width=(8+Math.random()*8)+'px';c.style.height=(8+Math.random()*8)+'px';w.appendChild(c);}
-  document.body.appendChild(w);setTimeout(()=>w.remove(),5000);
+  var w=document.createElement('div');w.className='confetti-wrap';
+  var colors=['#FF5722','#FF9800','#4CAF50','#2196F3','#9C27B0','#FFC107','#E91E63'];
+  for(var i=0;i<80;i++){var c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDelay=(Math.random()*2)+'s';c.style.animationDuration=(2+Math.random()*2)+'s';c.style.width=(8+Math.random()*8)+'px';c.style.height=(8+Math.random()*8)+'px';w.appendChild(c);}
+  document.body.appendChild(w);setTimeout(function(){w.remove();},5000);
 }
 
 // ===== Player Switcher =====
 function showPlayerSwitcher(){
-  let html='<div class="modal-overlay" onclick="event.target===this&&closeModal()"><div class="modal"><h2>👥 さんかしゃ きりかえ</h2><ul class="player-list">';
-  data.players.forEach(p=>{html+='<li class="'+(p.id===data.currentId?'current':'')+'" onclick="switchPlayer(\''+p.id+'\')"><span class="p-char">'+p.char+'</span><span class="p-name">'+p.name+'</span><span class="p-pts">'+p.points+'pt</span></li>';});
+  var html='<div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><h2>\uD83D\uDC65 さんかしゃ きりかえ</h2><ul class="player-list">';
+  for(var i=0;i<data.players.length;i++){
+    var p=data.players[i];
+    html+='<li class="'+(p.id===data.currentId?'current':'')+'" onclick="switchPlayer(\''+p.id+'\')"><span class="p-char">'+p.char+'</span><span class="p-name">'+p.name+'</span><span class="p-pts">'+p.points+'pt</span></li>';
+  }
   html+='</ul><button onclick="closeModal()">とじる</button></div></div>';
   document.getElementById('modalWrap').innerHTML=html;
 }
 function switchPlayer(id){data.currentId=id;save();closeModal();renderAll();}
 
 // ===== Add/Delete Player =====
+var addCharPick='';
 function showAddPlayer(){
-  setupChar='';addCharPick='';
-  document.getElementById('modalWrap').innerHTML='<div class="modal-overlay"><div class="modal"><h2>＋ ついか</h2><input type="text" class="name-input" id="addName" placeholder="なまえを いれてね" maxlength="10" style="margin:10px 0"><div class="char-grid" id="addChars" style="justify-items:center;"><button class="char-btn" onclick="pickAddChar(this,\'🚗\')">🚗<span>くるま</span></button><button class="char-btn" onclick="pickAddChar(this,\'🚒\')">🚒<span>しょうぼうしゃ</span></button><button class="char-btn" onclick="pickAddChar(this,\'🚓\')">🚓<span>パトカー</span></button><button class="char-btn" onclick="pickAddChar(this,\'🐰\')">🐰<span>うさぎ</span></button><button class="char-btn" onclick="pickAddChar(this,\'🐱\')">🐱<span>ねこ</span></button><button class="char-btn" onclick="pickAddChar(this,\'🐼\')">🐼<span>パンダ</span></button></div><div class="confirm-btns"><button class="yes" style="background:#43A047" onclick="doAddPlayer()">ついか</button><button class="no" onclick="closeModal()">やめる</button></div></div></div>';
+  addCharPick='';
+  document.getElementById('modalWrap').innerHTML='<div class="modal-overlay"><div class="modal"><h2>＋ ついか</h2><input type="text" class="name-input" id="addName" placeholder="なまえを いれてね" maxlength="10" style="margin:10px 0"><div class="char-grid" id="addChars" style="justify-items:center;"><button class="char-btn" onclick="pickAddChar(this,\'\uD83D\uDE97\')">\uD83D\uDE97<span>くるま</span></button><button class="char-btn" onclick="pickAddChar(this,\'\uD83D\uDE92\')">\uD83D\uDE92<span>しょうぼうしゃ</span></button><button class="char-btn" onclick="pickAddChar(this,\'\uD83D\uDE93\')">\uD83D\uDE93<span>パトカー</span></button><button class="char-btn" onclick="pickAddChar(this,\'\uD83D\uDC30\')">\uD83D\uDC30<span>うさぎ</span></button><button class="char-btn" onclick="pickAddChar(this,\'\uD83D\uDC31\')">\uD83D\uDC31<span>ねこ</span></button><button class="char-btn" onclick="pickAddChar(this,\'\uD83D\uDC3C\')">\uD83D\uDC3C<span>パンダ</span></button></div><div class="confirm-btns"><button class="yes" style="background:#43A047" onclick="doAddPlayer()">ついか</button><button class="no" onclick="closeModal()">やめる</button></div></div></div>';
 }
-let addCharPick='';
-function pickAddChar(btn,c){addCharPick=c;document.querySelectorAll('#addChars .char-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');}
-function doAddPlayer(){const n=document.getElementById('addName').value.trim();if(!n||!addCharPick){alert('なまえと キャラクターを えらんでね');return;}const p={id:uid(),name:n,char:addCharPick,points:0,morningDone:''};data.players.push(p);data.currentId=p.id;save();closeModal();renderAll();}
+function pickAddChar(btn,c){
+  addCharPick=c;
+  var btns=document.querySelectorAll('#addChars .char-btn');
+  for(var i=0;i<btns.length;i++) btns[i].classList.remove('selected');
+  btn.classList.add('selected');
+}
+function doAddPlayer(){var n=document.getElementById('addName').value.trim();if(!n||!addCharPick){alert('なまえと キャラクターを えらんでね');return;}var p={id:uid(),name:n,char:addCharPick,points:0,morningDone:''};data.players.push(p);data.currentId=p.id;save();closeModal();renderAll();}
 
 function confirmDeletePlayer(id){
-  const p=data.players.find(x=>x.id===id);if(!p)return;
+  var p=null;for(var i=0;i<data.players.length;i++){if(data.players[i].id===id){p=data.players[i];break;}}
+  if(!p)return;
   document.getElementById('modalWrap').innerHTML='<div class="modal-overlay"><div class="modal"><h2>⚠️ さくじょ</h2><div class="big-emoji">'+p.char+'</div><p><b>'+p.name+'</b> を さくじょするよ。<br>ポイントも きえるよ。いいかな？</p><div class="confirm-btns"><button class="yes" onclick="doDeletePlayer(\''+id+'\')">さくじょする</button><button class="no" onclick="closeModal()">やめる</button></div></div></div>';
 }
-function doDeletePlayer(id){data.players=data.players.filter(p=>p.id!==id);if(data.currentId===id)data.currentId=data.players.length?data.players[0].id:null;save();closeModal();if(!data.players.length)location.reload();else renderAll();}
+function doDeletePlayer(id){
+  data.players=data.players.filter(function(p){return p.id!==id;});
+  if(data.currentId===id)data.currentId=data.players.length?data.players[0].id:null;
+  save();closeModal();
+  if(!data.players.length){location.reload();}
+  else renderAll();
+}
 
 // ===== Settings =====
 function updateTarget(v){data.target=parseInt(v);document.getElementById('targetVal').textContent=v;save();renderAll();}
-function changeChar(c){const p=cur();if(!p)return;p.char=c;save();renderAll();}
+function changeChar(c){var p=cur();if(!p)return;p.char=c;save();renderAll();}
 function confirmReset(){
-  document.getElementById('modalWrap').innerHTML='<div class="modal-overlay"><div class="modal"><h2>⚠️ リセット</h2><div class="big-emoji">🔄</div><p>いまの さんかしゃの ポイントを<br><b>0</b> に もどすよ。いいかな？</p><div class="confirm-btns"><button class="yes" onclick="doReset()">リセットする</button><button class="no" onclick="closeModal()">やめる</button></div></div></div>';
+  document.getElementById('modalWrap').innerHTML='<div class="modal-overlay"><div class="modal"><h2>⚠️ リセット</h2><div class="big-emoji">\uD83D\uDD04</div><p>いまの さんかしゃの ポイントを<br><b>0</b> に もどすよ。いいかな？</p><div class="confirm-btns"><button class="yes" onclick="doReset()">リセットする</button><button class="no" onclick="closeModal()">やめる</button></div></div></div>';
 }
-function doReset(){const p=cur();if(p){p.points=0;p.morningDone='';}save();closeModal();renderAll();}
+function doReset(){var p=cur();if(p){p.points=0;p.morningDone='';}save();closeModal();renderAll();}
 
 // ===== Morning Time =====
 function initTimeSelects(){
-  ['mStartH','mEndH'].forEach(id=>{const sel=document.getElementById(id);for(let h=0;h<=23;h++){const o=document.createElement('option');o.value=h;o.textContent=h;sel.appendChild(o);}});
-  ['mStartM','mEndM'].forEach(id=>{const sel=document.getElementById(id);for(let m=0;m<=55;m+=5){const o=document.createElement('option');o.value=m;o.textContent=String(m).padStart(2,'0');sel.appendChild(o);}});
+  var hIds=['mStartH','mEndH'];
+  for(var hi=0;hi<hIds.length;hi++){var sel=document.getElementById(hIds[hi]);for(var h=0;h<=23;h++){var o=document.createElement('option');o.value=h;o.textContent=h;sel.appendChild(o);}}
+  var mIds=['mStartM','mEndM'];
+  for(var mi=0;mi<mIds.length;mi++){var sel2=document.getElementById(mIds[mi]);for(var m=0;m<=55;m+=5){var o2=document.createElement('option');o2.value=m;o2.textContent=String(m).padStart(2,'0');sel2.appendChild(o2);}}
 }
 function loadMorningTimeUI(){document.getElementById('mStartH').value=data.morningStart.h;document.getElementById('mStartM').value=data.morningStart.m;document.getElementById('mEndH').value=data.morningEnd.h;document.getElementById('mEndM').value=data.morningEnd.m;}
 function saveMorningTime(){data.morningStart.h=parseInt(document.getElementById('mStartH').value);data.morningStart.m=parseInt(document.getElementById('mStartM').value);data.morningEnd.h=parseInt(document.getElementById('mEndH').value);data.morningEnd.m=parseInt(document.getElementById('mEndM').value);save();renderMorning();}
 
 // ===== Tabs =====
-function switchTab(pageId,btn){document.querySelectorAll('.tab-page').forEach(p=>p.classList.remove('active'));document.getElementById(pageId).classList.add('active');document.querySelectorAll('.tab-nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(pageId==='pageMorning')renderMorning();}
+function switchTab(pageId,btn){
+  var pages=document.querySelectorAll('.tab-page');for(var i=0;i<pages.length;i++) pages[i].classList.remove('active');
+  document.getElementById(pageId).classList.add('active');
+  var btns=document.querySelectorAll('.tab-nav button');for(var j=0;j<btns.length;j++) btns[j].classList.remove('active');
+  btn.classList.add('active');
+  if(pageId==='pageMorning')renderMorning();
+}
 
 // ===== SW =====
-if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 
 init();
 </script>
