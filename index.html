@@ -28,8 +28,9 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Hiragino Kaku Goth
 .sg{padding:14px 44px;font-size:1.4em;font-weight:bold;color:#fff;background:linear-gradient(135deg,#FF7043,#F4511E);border:none;border-radius:44px;cursor:pointer;box-shadow:0 4px 12px rgba(244,81,30,.4);margin-top:6px;}
 .sg:disabled{background:#ccc;box-shadow:none;}
 
-/* Main */
-#main{display:none;width:100%;height:100%;overflow:hidden;}
+/* === FIXED: added flex-direction:column === */
+#main{display:none;flex-direction:column;width:100%;height:100%;overflow:hidden;}
+
 .top{background:linear-gradient(90deg,#FF9800,#FFA726);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 10px rgba(0,0,0,.15);flex-shrink:0;}
 .top .tc{font-size:1.6em;}
 .top .tn{font-size:1em;font-weight:bold;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -39,7 +40,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Hiragino Kaku Goth
 .tbtn:active{background:rgba(255,255,255,.4);}
 
 /* Grid layout */
-.wrap{display:flex;flex:1;overflow:hidden;height:calc(100% - 52px);}
+.wrap{display:flex;flex:1;overflow:hidden;}
 .col-l{flex:1.1;display:flex;flex-direction:column;overflow:hidden;border-right:2px solid #FFE0B2;}
 .col-r{flex:0.9;display:flex;flex-direction:column;overflow:hidden;}
 
@@ -117,7 +118,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Hiragino Kaku Goth
 .cbts .nb{background:#E0E0E0;color:#555;}
 .cbts .gb{background:#43A047;color:#fff;}
 
-/* Settings specifics */
+/* Settings */
 .scard{background:#F5F5F5;border-radius:14px;padding:16px;margin:10px 0;text-align:left;}
 .scard h3{color:#E65100;font-size:1.1em;margin-bottom:8px;}
 .scard label{display:block;font-size:.95em;color:#555;margin-bottom:4px;}
@@ -142,7 +143,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Hiragino Kaku Goth
 .toggle::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.3s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
 .toggle.on::after{left:25px;}
 
-/* Chore editor in settings */
+/* Chore editor */
 .ce-item{display:flex;align-items:center;gap:8px;padding:8px;margin:4px 0;background:#fff;border-radius:10px;border:1px solid #eee;}
 .ce-item .ce-emoji{font-size:1.4em;width:36px;text-align:center;}
 .ce-item .ce-name{flex:1;font-size:.9em;font-weight:bold;}
@@ -375,7 +376,7 @@ function showConfetti(){var w=document.createElement('div');w.className='cfw';va
 // ===== Player Switcher =====
 function showSwitch(){
   var h='<div class="mo" onclick="if(event.target===this)closeM()"><div class="md"><h2>\uD83D\uDC65 きりかえ</h2><ul class="pl">';
-  for(var i=0;i<D.players.length;i++){var p=D.players[i];h+='<li class="'+(p.id===D.currentId?'cur':'')+'\" onclick="swP(\''+p.id+'\')"><span class="pc">'+p.char+'</span><span class="pn">'+p.name+'</span><span class="pp">'+p.points+'pt</span></li>';}
+  for(var i=0;i<D.players.length;i++){var p=D.players[i];h+='<li class="'+(p.id===D.currentId?'cur':'')+'" onclick="swP(\''+p.id+'\')"><span class="pc">'+p.char+'</span><span class="pn">'+p.name+'</span><span class="pp">'+p.points+'pt</span></li>';}
   h+='</ul><button onclick="closeM()">とじる</button></div></div>';document.getElementById('mw').innerHTML=h;
 }
 function swP(id){D.currentId=id;save();closeM();renderAll();}
@@ -384,25 +385,17 @@ function swP(id){D.currentId=id;save();closeM();renderAll();}
 function showSettings(){
   var h='<div class="mo" onclick="if(event.target===this)closeM()"><div class="md" style="text-align:left;max-width:520px">';
   h+='<h2 style="text-align:center">⚙️ せってい</h2>';
-  // Players
   h+='<div class="scard"><h3>\uD83D\uDC65 さんかしゃ</h3><div id="spList"></div><button class="abtn" onclick="showAddP()">＋ ついか</button></div>';
-  // Target
   h+='<div class="scard"><h3>\uD83C\uDFAF もくひょう</h3><div class="sw"><input type="range" id="trS" min="10" max="100" step="5" value="'+D.target+'" oninput="updT(this.value)"><span class="sv" id="trV">'+D.target+'</span></div></div>';
-  // Morning
   h+='<div class="scard"><h3>☀️ あさチャレンジ じかん</h3><div class="ts">かいし <select id="msH" onchange="saveMT()"></select>じ<select id="msM" onchange="saveMT()"></select>ふん</div><div class="ts">おわり <select id="meH" onchange="saveMT()"></select>じ<select id="meM" onchange="saveMT()"></select>ふん</div></div>';
-  // Chores
   h+='<div class="scard"><h3>⭐ おてつだい かんり</h3><div id="ceList"></div>';
   h+='<div class="add-chore-row"><select id="acE">';for(var i=0;i<EMOJIS.length;i++)h+='<option>'+EMOJIS[i]+'</option>';
   h+='</select><input id="acN" placeholder="なまえ" maxlength="12"><select id="acP"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>pt<button class="abtn" style="width:auto;padding:6px 14px" onclick="addChore()">＋</button></div></div>';
-  // Character
   h+='<div class="scard"><h3>\uD83C\uDFAD キャラクター</h3><div class="cg" id="sCCg" style="justify-items:center"></div></div>';
-  // Audio
   h+='<div class="scard"><h3>\uD83C\uDFB5 おと</h3><div class="toggle-row"><span>BGM</span><div class="toggle'+(D.muteB?'':' on')+'" onclick="togB(this)"></div></div><div class="toggle-row"><span>こうかおん</span><div class="toggle'+(D.muteS?'':' on')+'" onclick="togS(this)"></div></div></div>';
-  // Reset
   h+='<div class="scard"><h3>\uD83D\uDD04 リセット</h3><button class="rbtn" onclick="confReset()">ポイントを リセット</button></div>';
   h+='<div style="text-align:center"><button onclick="closeM()">とじる</button></div></div></div>';
   document.getElementById('mw').innerHTML=h;
-  // Populate
   buildSPL();buildSCCg();buildCEList();initTSel();
 }
 function buildSPL(){
